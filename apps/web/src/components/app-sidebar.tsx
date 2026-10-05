@@ -2,9 +2,6 @@ import type * as React from "react";
 
 import { NavMain } from "@/components/nav-main";
 import { NavProjects } from "@/components/nav-projects";
-import { NavSecondary } from "@/components/nav-secondary";
-import { ThemeToggleDropdown } from "@/components/theme-toggle-dropdown";
-import { TrialCard } from "@/components/trial-card";
 import {
   Sidebar,
   SidebarContent,
@@ -12,7 +9,6 @@ import {
   SidebarHeader,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { VersionDisplay } from "@/components/version-display";
 import { WorkspaceSwitcher } from "@/components/workspace-switcher";
 import { shortcuts } from "@/constants/shortcuts";
 import { useRegisterShortcuts } from "@/hooks/use-keyboard-shortcuts";
@@ -42,13 +38,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain />
         <NavProjects />
       </SidebarContent>
-      <SidebarFooter>
-        <NavSecondary />
-        <TrialCard />
-        <div className="flex items-center justify-between">
-          <VersionDisplay />
-          <ThemeToggleDropdown />
-        </div>
+      <SidebarFooter className="py-3">
+        <a
+          href="https://growbitlabs.com/"
+          target="_blank"
+          rel="noreferrer"
+          className="text-center text-xs text-muted-foreground hover:text-foreground transition-colors"
+        >
+          Powered by growbitlabs.com
+        </a>
       </SidebarFooter>
     </Sidebar>
   );
